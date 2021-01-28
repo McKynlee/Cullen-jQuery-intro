@@ -15,7 +15,11 @@
       <li>Child 2</li>
       <li>Child 3</li>
     </ul>
-    <div>
+    <!--a <form> doesn't allow the data to be rendered on the DOM
+      because it refreshes the page immediately.  You can use <form>
+        and fix it, <form> allows ENTER to submit = bonus!
+          and clearer/better accessability-->
+    <form>
       <label for="brand">Harmonica Brand</label>
       <input type="text" placeholder="harmonica brand" id="brand" />
 
@@ -32,7 +36,9 @@
 
       <input type="submit" value="Submit!" id="submitButton" />
       <button>Submit</button>
+    </form>
 
+    <div>
       <ul id="harmonicas"></ul>
     </div>
   </body>

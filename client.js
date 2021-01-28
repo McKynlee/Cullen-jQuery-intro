@@ -56,7 +56,11 @@ function deleteMe() {
   $(this).parent().remove();
 }
 
-function whenIAddAHarmonica() {
+function whenIAddAHarmonica(event) {
+  //use event parameter and the following line to fix <form> refresh
+  // and allow the data to be rendered on DOM.
+  event.preventDefault();
+
   //Stuff to do when we add a harmonica, triggered on click event above
   console.log('clicked the btn');
 
