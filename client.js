@@ -28,4 +28,17 @@ function onReady() {
   //Change to capital letters and add something:
   const louderText = h1Text.toUpperCase() + '!!!!';
   $('h1').text(louderText);
+
+  //handling a click event:
+  //1) Call the item you want to be clicked to start correct function
+  $('#submitButton').on('click', whenIAddAHarmonica);
+  //NOTE: we are NOT calling the function() since we don't have ()
+  //but we are starting that function
+}
+
+function whenIAddAHarmonica() {
+  //Stuff to do when we add a harmonica, triggered on click event above
+  console.log('clicked the btn');
+
+  //Grab that data
 }
