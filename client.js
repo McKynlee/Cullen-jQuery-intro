@@ -34,11 +34,42 @@ function onReady() {
   $('#submitButton').on('click', whenIAddAHarmonica);
   //NOTE: we are NOT calling the function() since we don't have ()
   //but we are starting that function
+
+  //This won't initially work because deleteBtn doesn't exist onReady
+  // $('.deleteBtn').on('click', deleteMe);
+
+  //So we have to find an element that does exist (from HTML)
+  //This style ALWAYS works: Event Delegation/ Descendent selectors
+  $(document).on('click', '.deleteBtn', deleteMe);
+  console.log('DeleteBtn is:', $('.deleteBtn'));
+}
+
+function deleteMe() {
+  let thisThing = $(this);
+  console.log('delete me!', $('.harmonica-item'));
+  // $('.harmonica-item').remove(this);
+  console.log('What is this?', thisThing);
+
+  //This actually only deletes the 'Delete Me' button
+  // $(this).remove();
+  //To remove entire list item element access its parent:
+  $(this).parent().remove();
 }
 
 function whenIAddAHarmonica() {
   //Stuff to do when we add a harmonica, triggered on click event above
   console.log('clicked the btn');
 
-  //Grab that data
+  //Grab form data that user inputs
+  let brand = $('#brand').val();
+  console.log('brand is', brand);
+
+  //render form data on the DOM (append, usually)
+  //1) need somewhere to put it, so creating <ul>
+  $('#harmonicas').append(`
+  <li class="harmonica-item">
+    Brand is: ${brand}
+    <button class="deleteBtn">Delete Me</button>
+  </li>
+  `);
 }
