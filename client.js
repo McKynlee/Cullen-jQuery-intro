@@ -17,4 +17,15 @@ function onReady() {
   // OR:
   $('h1').addClass('froggy');
   // can .toggleClass to turn it off and on with clicks
+
+  // set the text to something new:
+  $('h1').text('Changing to say THIS!');
+
+  // use as getter:
+  const h1Text = $('h1').text();
+  console.log('h1Text is', h1Text);
+
+  //Change to capital letters and add something:
+  const louderText = h1Text.toUpperCase() + '!!!!';
+  $('h1').text(louderText);
 }
